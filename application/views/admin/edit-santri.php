@@ -4,14 +4,14 @@
             <div class="col-md-12">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <div class="fas fa-user-edit"></div> Edit Data Santri
+                        <div class="fas fa-user-edit"></div> Edit Data Santri <b><?php echo $dt['nama_santri'] ?></b>
                     </div>
                     <div class="card-body">
                         <form action="<?php echo base_url('list-santri/edit/' . $dt['id_santri']) ?>" method="post">
                             <div class="form-group">
                                 <label for="foto">Foto</label>
                                 <input type="file" name="fotosantri" id="foto" size="20" class="form-control" />
-                                <input required hidden type="text" class="form-control" id="nisn" value="<?php echo $dt['NISN'] ?>" maxlength="20" placeholder="Masukan NISN">
+                                <input required hidden name="old-image-fotosantri" type="text" class="form-control" id="nisn" value="<?php echo $dt['NISN'] ?>" maxlength="20" placeholder="Masukkan NISN">
                             </div>
 
                             <div class="form-group">
@@ -71,20 +71,20 @@
 
                             <div class="form-group">
                                 <label for="foto">Sertifikat</label>
-                                <input required hidden name="old-image-sertif" type="text" class="form-control" id="nisn" value="<?php echo $dt['NISN'] ?>" maxlength="20" placeholder="Masukan NISN">
+                                <input required hidden name="old-image-sertif" type="text" class="form-control" id="nisn" value="<?php echo $dt['sertifSis'] ?>" maxlength="20" placeholder="Masukan NISN">
                                 <input type="file" name="sertifSis" class="form-control" value="<?php echo $dt['sertifSis'] ?>" />
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="lulusan">Lulusan</label>
-                                    <input type="text" name="lulusan" class="form-control" id="lulusan" value="<?php echo $dt['lulusan'] ?>">
+                                    <input required type="text" name="lulusan" class="form-control" id="lulusan" value="<?php echo $dt['lulusan'] ?>">
                                     <?php echo form_error('lulusan', '<small class="text-danger">', '</small>'); ?>
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="asal_school">Asal Sekolah</label>
-                                    <input type="text" name="asal_school" class="form-control" id="asal_school" value="<?php echo $dt['asal_school'] ?>">
+                                    <input required type="text" name="asal_school" class="form-control" id="asal_school" value="<?php echo $dt['asal_school'] ?>">
                                     <?php echo form_error('asal_school', '<small class="text-danger">', '</small>'); ?>
                                 </div>
                             </div>
@@ -104,8 +104,9 @@
 
                             <div class="form-inline my-1">
                                 <label for="kerja">Pekerjaan Orang Tua &nbsp;</label>
-                                <input required type="text" name="pekerjaan_ortu" style="width: 200px" id="pekerjaan_ortu" value="<?php echo $dt['pekerjaan_ortu'] ?>" list="mySuggestion" class="form-control">
+                                <input required type="text" name="pekerjaan_ortu" style="width: 200px" id="pekerjaan_ortu" list="mySuggestion" class="form-control">
                                 <datalist id="mySuggestion">
+                                    <option value="<?php echo $dt['pekerjaan_ortu'] ?>" <?php echo $dt['pekerjaan_ortu'] ?>></option>
                                     <option>TNI/POLRI</option>
                                     <option>PNS</option>
                                     <option>Peg. Swasta</option>
@@ -117,13 +118,13 @@
                                 </datalist>
                                 <?php echo form_error('pekerjaan_ortu', '<small class="text-danger">', '</small>'); ?> &nbsp; &nbsp;
                                 <label for="lain_lain"></label>
-                                <input type="text" value="<?php echo $dt['lain_lain'] ?>" class="form-control" style="width: 360px;" id="lain_lain" name="lain_lain" placeholder="isi jika pekerjaan orang tua tidak tertera di list">
+                                <input type="text" class="form-control" style="width: 360px;" id="lain_lain" name="lain_lain" value="<?php echo $dt['lain_lain'] ?>" placeholder="isi jika pekerjaan orang tua tidak tertera di list">
                                 <?php echo form_error('lain_lain', '<small class="text-danger">', '</small>'); ?>
                             </div>
 
                             <div class="form-group">
                                 <label for="pendidikan">Pendidikan Orang Tua</label>
-                                <select name="pendidikan" class="form-control" id="pendidikan" value="<?php echo $dt['pendidikan'] ?>">
+                                <select name="pendidikan" class="form-control" id="pendidikan">
                                     <option value="<?php echo $dt['pendidikan'] ?>" <?php echo $dt['pendidikan'] ?>></option>
                                     <option>SD/MI</option>
                                     <option>SMP/MTs</option>
@@ -144,13 +145,13 @@
                                 <input required type="text" class="form-control" id="anak_ke" name="anak_ke" value="<?php echo $dt['anak_ke'] ?>" style="width: 50px">
                                 <?php echo form_error('anak_ke', '<small class="text-danger">', '</small>'); ?>
                                 <label for="dari">&nbsp;dari &nbsp;</label>
-                                <input required type="text" class="form-control" id="dari" name="dari" style="width: 50px" value="<?php echo $dt['dari'] ?>">
+                                <input required type="text" class="form-control" id="dari" name="dari" value="<?php echo $dt['dari'] ?>" style="width: 50px">
                                 <?php echo form_error('dari', '<small class="text-danger">', '</small>'); ?>
                             </div>
 
                             <div class="form-group">
                                 <label for="stat">Status Anak</label>
-                                <select name="stat_anak" class="form-control" id="stat" value="<?php echo $dt['stat_anak'] ?>">
+                                <select name="stat_anak" class="form-control" id="stat">
                                     <option value="<?php echo $dt['stat_anak'] ?>" <?php echo $dt['stat_anak'] ?>></option>
                                     <option>Kandung</option>
                                     <option>Tiri</option>
@@ -185,8 +186,8 @@
                                 <?php echo form_error('tb', '<small class="text-danger">', '</small>'); ?>
 
                                 <label for="goldar">Golongan Darah &nbsp; </label>
-                                <select name="gol_dar" class="form-control" id="gol_dar" style="width: 50px;" value="<?php echo $dt['gol_dar'] ?>">
-                                    <option value=""></option>
+                                <select name="gol_dar" class="form-control" id="gol_dar" style="width: 80px;">
+                                    <option value="<?php echo $dt['gol_dar'] ?>" <?php echo $dt['gol_dar'] ?>></option>
                                     <option>O</option>
                                     <option>A</option>
                                     <option>B</option>
@@ -219,9 +220,9 @@
                                 <input required type="text" class="form-control" id="bakat_agama" name="bakat_agama" value="<?php echo $dt['bakat_agama'] ?>">
                                 <?php echo form_error('bakat_agama', '<small class="text-danger">', '</small>'); ?>
                             </div>
-                            <div class="form-group buttons d-flex justify-content-between">
-                                <button type="reset" class="btn btn-danger">Reset</button>
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-danger">Reset</button>
                             </div>
                         </form>
                     </div>

@@ -1,9 +1,12 @@
 <main>
 	<div class="container-fluid">
 		<h1 class="mt-4">List Guru</h1>
-
-		<?php echo $this->session->flashdata('pesan') ?>
-
+		<section class="content">
+			<div class="alert alert-success alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4><i class="icon fa fa-check"></i>&nbsp;<?php echo $this->session->flashdata('guru'); ?></h4>
+			</div>
+		</section>
 		<div class="card mb-4">
 			<div class="card-header row">
 				<div class="col-6">
@@ -34,7 +37,7 @@
 							<?php foreach ($list_teacher->result() as $dt) : ?>
 
 								<tr>
-									<td><img width="50px" heigth="auto" src="<?php echo base_url() ?>upload/guru/foto/<?php echo $dt->foto_guru ?>"></td>
+									<td><img width="70px" heigth="auto" src="<?php echo base_url() ?>upload/guru/<?php echo $dt->foto_guru ?>"></td>
 
 									<td><?php echo $dt->nama_guru ?></td>
 

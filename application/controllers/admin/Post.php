@@ -41,26 +41,23 @@ class Post extends CI_Controller
             $this->upload->initialize($config);
 
             if (!$this->upload->do_upload('image')) {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger">
-					Gagal mengupload foto silahkan cek file upload!. JPG,GIF,JPEG
-				</div>');
+                $this->session->set_flashdata('post', 'Gagal mengupload foto silahkan cek file upload!. JPG,GIF,JPEG');
                 redirect('admin/add-new-data-post');
             } else {
                 $upload    =    $this->upload->data('');
                 $title     =    $this->input->post('title');
                 $body     =    $this->input->post('body');
                 $category     =    $this->input->post('category');
+
                 $data =    [
                     'title' => $title,
                     'body' => $body,
                     'category' => $category,
-                    'image' => $new_name
+                    'image' => $new_name,
                 ];
 
                 $this->PostModel->create('posts', $data);
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-					Berhasil menambah data
-				</div>');
+                $this->session->set_flashdata('post', 'Berhasil Menambah Data!');
                 return redirect('admin/posts');
             }
         }
@@ -94,9 +91,7 @@ class Post extends CI_Controller
             $this->upload->initialize($config);
 
             if (!$this->upload->do_upload('image')) {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger">
-                     Gagal mengupload foto silahkan cek file upload!. JPG,GIF,JPEG
-                 </div>');
+                $this->session->set_flashdata('post', 'Gagal mengupload foto silahkan cek file upload!. JPG,GIF,JPEG');
                 redirect('admin/add-new-data-post');
             } else {
                 $upload    =    $this->upload->data('');
@@ -111,9 +106,7 @@ class Post extends CI_Controller
                 ];
 
                 $this->PostModel->update('posts', 'id_post', $id, $data);
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-                     Berhasil mengubah data
-                 </div>');
+                $this->session->set_flashdata('post', 'Berhasil Mengubah Data !');
                 return redirect('admin/posts');
             }
         }
@@ -126,10 +119,7 @@ class Post extends CI_Controller
             $this->db->where('id_post', $id);
             $this->db->delete('posts');
         }
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-					Berhasil Mengapus Data !
-                </div>');
-
+        $this->session->set_flashdata('post', 'Berhasil Menghapus Data');
         return redirect('admin/Post');
     }
 
@@ -138,7 +128,6 @@ class Post extends CI_Controller
         $data['title']    =    'Daftar Post | DHIBS';
         $data['page']    =    '/admin/cetak_admin';
         $data['dt_admin'] =     $this->db->get('admin');
-
         $this->load->view($this->template, $data);
     }
 }

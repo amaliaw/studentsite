@@ -35,14 +35,10 @@ class Auth extends CI_Controller
         }
     }
 
-
-
-
     public function cekLogin()
     {
         $this->AuthModel->cekLogin();
     }
-
 
     // halaman register
     public function register()
@@ -71,23 +67,17 @@ class Auth extends CI_Controller
         }
     }
 
-
     public function prosesRegister()
     {
         $this->AuthModel->prosesRegister();
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-				Berhasil melakukan register!
-			</div>');
+        $this->session->set_flashdata("register", "Berhasil melakukan register!");
         redirect('login');
     }
-
 
     public function logout()
     {
         session_destroy();
-        $this->session->set_flashdata('pesan', '<div class="alert alert-danger">
-					Anda Berhasil Logout!
-				</div>');
+        $this->session->set_flashdata("logout", "Anda Berhasil Logout!");
         redirect('login');
     }
 }

@@ -7,7 +7,7 @@
                         <div class="fas fa-user-edit"></div> Edit Data Guru <b><?php echo $dt['nama_guru'] ?></b>
                     </div>
                     <div class="card-body">
-                        <form action="<?php echo base_url('list-teacher/edit/' . $dt['id_guru']) ?>" method="post">
+                        <form action="<?php echo base_url('list-guru/edit/' . $dt['id_guru']) ?>" method="post">
                             <div class="form-group">
                                 <label for="foto_guru"> Foto</label>
                                 <input type="file" class="form-control" name="foto_guru">
@@ -83,9 +83,10 @@
                                 <input type="file" class="form-control" name="ijazah_g">
                                 <?php echo form_error('ijazah_g', 'small class="text-danger">', '</small>') ?>
                             </div>
-
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="reset" class="btn btn-danger">Reset</button>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-danger">Reset</button>
+                            </div>
                         </form>
                     </div>
                 </div>

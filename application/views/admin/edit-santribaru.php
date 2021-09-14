@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <div class="fas fa-user-edit"></div> Edit Data Santri Baru
+                        <div class="fas fa-user-edit"></div> Edit Data Santri Baru <b><?php echo $dt['nama_santri'] ?></b>
                     </div>
                     <div class="card-body">
                         <form action="<?php echo base_url('list-santribaru/edit/' . $dt['id_santribaru']) ?>" method="post">
@@ -12,7 +12,7 @@
                                 <label for="foto">Foto</label>
                                 <input type="file" name="foto" id="foto" size="20" class="form-control" />
                             </div>
-
+ 
                             <div class="form-group">
                                 <label for="nisn">NISN</label>
                                 <input required type="text" name="nisn" class="form-control" id="nisn" value="<?= set_value('nisn') ?>" maxlength="20" placeholder="Masukan NISN">
@@ -216,9 +216,9 @@
                                 <input required type="text" class="form-control" id="bakat_agama" name="bakat_agama" value="<?= set_value('bakat_agama') ?>">
                                 <?php echo form_error('bakat_agama', '<small class="text-danger">', '</small>'); ?>
                             </div>
-                            <div class="form-group buttons d-flex justify-content-between">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="reset" class="btn btn-danger">Reset</button>
-                                <button type="submit" class="btn btn-primary">Next</button>
                             </div>
                         </form>
                     </div>

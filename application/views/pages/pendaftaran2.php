@@ -21,23 +21,21 @@
 </head>
 
 <body>
-    <!-- MELOAD / MEMANGGIL NAVBAR -->
     <!-- Form Pendaftaran -->
     <div class="card-body">
-        <!-- <form action="<?php echo base_url('proses_pendaftaran2') ?>" enctype="multipart/form-data" method="post" accept-charset="utf-8"> -->
         <?php echo form_open_multipart('proses_pendaftaran2'); ?>
         <div class="form-group">
-            <label for="fotob">Foto</label>
-            <input type="file" name="fotob" id="fotob" size="20" class="form-control" />
+            <label for="foto">Foto</label>
+            <input type="file" name="fotob" id="foto" size="20" class="form-control" />
         </div>
 
         <div class="form-group">
-            <label for="aktaKelb">Akta Kelahiran</label>
+            <label for="aktaKel">Akta Kelahiran</label>
             <input type="file" name="aktaKelb" class="form-control" />
         </div>
 
         <div class="form-group">
-            <label for="sertifSisb">Sertifikat</label>
+            <label for="sertifSis">Sertifikat</label>
             <input type="file" name="sertifSisb" class="form-control" />
         </div>
 
@@ -45,16 +43,9 @@
             <button class="btn btn-sm btn-primary" type="submit">Submit</button>
         </div>
     </div>
-    </form>
-    </div>
-    </div>
-
-    <!-- memanggil footer -->
-    <?php $this->load->view('partials/footer'); ?>
 </body>
 <!-- Optional JavaScript; choose one of the two! -->
 <script src="https://apps.elfsight.com/p/platform.js" defer></script>
 <div class="elfsight-app-9a5da101-f555-4ae9-a150-2f22475847cf"></div>
-<!-- Optional JavaScript; choose one of the two! -->
 
 </html>

@@ -21,20 +21,16 @@
 </head>
 
 <body>
-
     <!-- Form Pendaftaran -->
     <div class="card-body">
         <div class="divCus" style="height: 50vh">
-            <div class="alert alert-success">
+            <div class="alert alert-success" role="alert">
                 <H5>BERHASIL MELAKUKAN PENDAFTARAN</H5>
             </div>
         </div>
-    </div>  
     </div>
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-9a5da101-f555-4ae9-a150-2f22475847cf"></div>
 </body>
-<!-- Optional JavaScript; choose one of the two! -->
-<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-9a5da101-f555-4ae9-a150-2f22475847cf"></div>
-<!-- Optional JavaScript; choose one of the two! -->
 
 </html>

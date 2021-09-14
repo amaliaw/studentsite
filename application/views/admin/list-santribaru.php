@@ -1,9 +1,12 @@
 <main>
     <div class="container-fluid">
         <h1 class="mt-4">List Santri Baru</h1>
-
-        <?= $this->session->flashdata('pesan') ?>
-
+        <section class="content">
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i>&nbsp;<?php echo $this->session->flashdata('ubah'); ?></h4>
+            </div>
+        </section>
         <div class="card mb-4">
             <div class="card-body">
                 <div class="table-responsive">
@@ -26,7 +29,7 @@
                         <tbody>
                             <?php foreach ($list_santribaru->result() as $dt) : ?>
                                 <tr>
-                                    <td><img width="50px" heigth="auto" src="<?php echo base_url() ?>upload/santribaru/<?php echo $dt->fotob ?>"></td>
+                                    <td><img width="70px" heigth="auto" src="<?php echo base_url() . '/' . $dt->fotob ?>"></td>
 
                                     <td><?php echo $dt->nama_santrib ?></td>
 

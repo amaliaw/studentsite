@@ -216,9 +216,9 @@
 								<input required type="text" class="form-control" id="bakat_agama" name="bakat_agama" value="<?= set_value('bakat_agama') ?>">
 								<?php echo form_error('bakat_agama', '<small class="text-danger">', '</small>'); ?>
 							</div>
-							<div class="form-group buttons d-flex justify-content-between">
-								<button type="reset" class="btn btn-danger">Reset</button>
+							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="reset" class="btn btn-danger">Reset</button>
 							</div>
 						</form>
 					</div>

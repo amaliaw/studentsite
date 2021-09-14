@@ -1,17 +1,17 @@
 <main>
 	<div class="container-fluid">
 		<h1 class="mt-4">List Post</h1>
-		<!-- <ol class="breadcrumb mb-4">
-			<li class="breadcrumb-item active">Dashboard</li>
-		</ol> -->
-
-		<?php echo $this->session->flashdata('pesan') ?>
-
+		<section class="content">
+			<div class="alert alert-success alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4><i class="icon fa fa-check"></i>&nbsp;<?php echo $this->session->flashdata('post'); ?></h4>
+			</div>
+		</section>
 		<div class="card mb-4">
 			<div class="card-header row">
 				<div class="col-6">
 					<i class="fas fa-plus mr-1"></i>
-					<a href="<?php echo base_url('admin/add-new-data-post') ?>"> Menambahkan Post Baru</a>
+					<a href="<?php echo base_url('admin/add-new-data-post') ?>"> Tambah Post Baru</a>
 				</div>
 			</div>
 			<div class="card-body">
@@ -30,7 +30,7 @@
 								<tr class="text-center align-items-center">
 									<td class="align-middle"><?php echo $dt->title ?></td>
 
-									<td class="align-middle"><img width="200" src="<?php echo base_url('assets/image/') . $dt->image ?>" alt="<?= $dt->title ?>"></td>
+									<td class="align-middle"><img width="90px" height="auto" src="<?php echo base_url('assets/image/') . $dt->image ?>" alt="<?= $dt->title ?>"></td>
 
 									<td class="align-middle">
 										<a href="<?php echo base_url('admin/posts/edit/' . $dt->id_post) ?>" class="btn  btn-info btn-sm"><i class="fa fa-pencil-alt"></i></a>
@@ -43,5 +43,4 @@
 				</div>
 			</div>
 		</div>
-	</div>
 </main>

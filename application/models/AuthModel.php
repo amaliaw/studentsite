@@ -15,9 +15,6 @@ class AuthModel extends CI_MODEL
         /* CEK USER ADA ATAU TIDAK*/
         if ($user) {
 
-            // var_dump($password);
-            // die;
-
             $hash = $user['password'];
 
             /* SELANJUTNYA CEK PASSWORD*/

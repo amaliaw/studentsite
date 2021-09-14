@@ -81,19 +81,6 @@
 </div>
 <!-- akhir rank -->
 
-<!-- news -->
-<div class="row news">
-    <div class="col-lg-6">
-        <img src="<?php echo base_url('assets/image/gambar.jpeg') ?>" alt="news" class="img-fluid">
-    </div>
-    <div class="col-lg-5">
-        <h3>Prestasi Santri Darul Hasan pada Olimpiade Bahasa Arab MGMP Bahasa Arab Tahun 2019</h3>
-        <p>SELAMAT KEPADA SANTRI BERPRESTASI Alhamdulillahi rabbil aalaamiin.... "juara adalah tradisi". Slogan tersebut mungkin terdengar agak bombastis, mengapa? karena sebuah prestasi adalah hasil bonus dari sebuah proses yang sangat ketat lagi keras. Namun nampaknya slogan di atas juga 'pas' disematkan kepada para santri Darul Hasan yang telah dengan keras meningkatkan kemapuan bahasa Arab mereka dengan belajar, simulasi, mengafal, dan bimbingan dengan para asatidzah. Akhirnya dengan penuh jerih payah mereka berhasil sampai pada tingkat provinsi mewakili kota Tangerang dalam olimpiade bahasa Arab MGMP Bahasa Arab tahun 2019.</p>
-        <a href="<?php echo base_url("bacaselengkapnya") ?>" class="btn btn-primary tombol">Baca Selengkapnya</a>
-    </div>
-</div>
-<!-- akhir News -->
-
 <!-- Start of LiveChat (www.livechatinc.com) code -->
 <script src="https://apps.elfsight.com/p/platform.js" defer></script>
 <div class="elfsight-app-9a5da101-f555-4ae9-a150-2f22475847cf"></div>

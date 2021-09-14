@@ -23,7 +23,7 @@
                             <div class="form-group">
                                 <label for="gender">Gender</label>
                                 <select name="jk_g" id="jk_g" class="form-control">
-                                    <option></option>
+                                    <option value="">-- Pilih --</option>
                                     <option value="Laki-Laki">Laki-Laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
@@ -78,9 +78,9 @@
                                 <?php echo form_error('ijazah_g', 'small class="text-danger">', '</small>') ?>
                             </div>
 
-                            <div class="form-group buttons d-flex justify-content-between">
-                                <button type="reset" class="btn btn-danger">Reset</button>
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-danger">Reset</button>
                             </div>
                         </form>
                     </div>

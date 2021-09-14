@@ -120,9 +120,13 @@ class ListSantriBaru extends CI_Controller
                 'fotob'          =>    $this->data->data('fotob'),
                 'nama_santrib'   =>    $this->input->post('nama_santrib'),
                 'kelas'          =>    $this->input->post('kelas'),
-                'wali_santrib'   =>    $this->input->post('wali_santrib'),
+                'wali_santri_ayahb'   =>    $this->input->post('wali_santri_ayahb'),
+                'walisantri_ibub'   =>    $this->input->post('walisantri_ibub'),
                 'no_hpb'         =>    $this->input->post('no_hpb'),
                 'jkb'            =>    $this->input->post('jkb'),
+                'lulusanb'            =>    $this->input->post('lulusanb'),
+                'asal_schoolb'            =>    $this->input->post('asal_schoolb'),
+                'penghasilan_ortub' => $this->input->post('penghasilan_ortub'),
                 'NISNb'          =>    $this->input->post('nisnb'),
                 'alamatb'        =>    $this->input->post('alamatb'),
                 'aktakelb'       =>    $this->data->data('aktaKelb'),
@@ -133,14 +137,14 @@ class ListSantriBaru extends CI_Controller
                 'tmp_lahirb'     =>    $this->input->post('tmp_lahirb'),
                 'tgl_lahirb'     =>    $this->input->post('tgl_lahirb'),
                 'stat_anakb'     =>    $this->input->post('stat_anakb'),
+                'bakat_agamab'     =>    $this->input->post('bakat_agamab'),
+                'bakat_senib'     =>    $this->input->post('bakat_senib'),
+                'bakat_orb'     =>    $this->input->post('bakat_orb'),
                 'anak_keb'       =>    $this->input->post('anak_keb')
             ];
             $this->AdminModel->update('list_santribaru', 'id_santribaru', $id, $data);
 
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-					Berhasil Mengubah Data !
-                </div>');
-
+            $this->session->set_flashdata('ubah', 'Berhasil Mengubah Data !');
             return redirect('admin/list-santribaru');
         }
     }
@@ -149,10 +153,7 @@ class ListSantriBaru extends CI_Controller
     {
         $this->db->where('id_santribaru', $id);
         $this->db->delete('list_santribaru');
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-					Berhasil Mengapus Data !
-                </div>');
-
+        $this->session->set_flashdata('ubah', 'Berhasil Menghapus Data !');
         return redirect('admin/list_santribaru');
     }
 

@@ -34,6 +34,9 @@ class Page extends CI_Controller
         $data['page']    =    '/pages/pendaftaran';
         $data['banner']    =    '/templates/banner';
 
+        $this->form_validation->set_rules('nama_santri', 'nama_santri', 'required', [
+            'required'    =>    'Kolom tidak boleh kosong! '
+        ]);
         if ($this->form_validation->run() == FALSE) {
             $this->pendaftaran();
 
@@ -74,13 +77,10 @@ class Page extends CI_Controller
             $this->db->insert('list_santribaru', $data);
 
             $lastid = $this->db->insert_id();
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-					Berhasil Memproses Data !
-                </div>');
+            $this->session->set_flashdata("pesan", "Berhasil Memproses Data !");
             $this->session->set_userdata('lastID', $lastid);
 
             $this->pendaftaran2();
-            // $this->AdminModel->create('list_santri', $data);
         }
     }
 
@@ -121,9 +121,7 @@ class Page extends CI_Controller
             $this->upload->initialize($config);
 
             if (!$this->upload->do_upload('fotob')) {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger">
-                Gagal mengupload foto silahkan cek file upload!
-                </div>');
+                $this->session->set_flashdata("gagal", "Gagal mengupload foto silahkan cek file upload!");
                 //bener
                 return redirect('pendaftaran2');
             } else {
@@ -160,9 +158,9 @@ class Page extends CI_Controller
 
                         // DATA UNTUK UPDATE TABLE 
                         $data = array(
-                            'fotob' => 'upload/' . $foto,
-                            'aktaKelb' => 'upload/' . $aktaKel,
-                            'sertifSisb' => 'upload/' . $sertifSis
+                            'fotob' => 'upload/santribaru/' . $foto,
+                            'aktaKelb' => 'upload/santribaru/akta/' . $aktaKel,
+                            'sertifSisb' => 'upload/santribaru/sertif/' . $sertifSis
                         );
 
                         $this->db->where('id_santribaru', $lastID);
@@ -176,9 +174,9 @@ class Page extends CI_Controller
 
                         // DATA UNTUK UPDATE TABLE 
                         $data = array(
-                            'fotob' => 'upload/' . $foto,
-                            'aktaKelb' => 'upload/' . $aktaKel,
-                            'sertifSisb' => 'upload/' . $sertifSis
+                            'fotob' => 'upload/santribaru/' . $foto,
+                            'aktaKelb' => 'upload/santribaru/akta/' . $aktaKel,
+                            'sertifSisb' => 'upload/santribaru/sertif/' . $sertifSis
                         );
 
                         $this->db->where('id_santribaru', $lastID);

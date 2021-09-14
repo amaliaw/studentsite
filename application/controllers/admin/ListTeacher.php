@@ -31,7 +31,7 @@ class ListTeacher extends CI_Controller
             $this->load->view($this->template, $data);
         } else {
             $config['upload_path']          = './upload/guru/';
-            $config['allowed_types']        = 'gif|jpg|png';
+            $config['allowed_types']        = 'jpg|jpeg';
             $config['file_name']            = $this->input->post('nip');
             $config['overwrite']            = true;
 
@@ -41,7 +41,7 @@ class ListTeacher extends CI_Controller
             if ($this->upload->do_upload('foto_guru')) {
                 //fotoktp
                 $config1['upload_path']          = './upload/guru/foto/';
-                $config1['allowed_types']        = 'gif|jpg|png';
+                $config1['allowed_types']        = 'jpg|jpeg';
                 $config1['file_name']            = $this->input->post('nip');
                 $config1['overwrite']            = true;
 
@@ -87,16 +87,14 @@ class ListTeacher extends CI_Controller
                 ];
                 $this->AdminModel->create('list_teacher', $data);
             }
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-					Berhasil Menambahkan Data Baru !
-                </div>');
+            $this->session->set_flashdata('guru', 'Berhasil Menambahkan Data !');
             return redirect('admin/ListTeacher');
         }
     }
 
-    public function editTeacher($id)
+    public function editGuru($id)
     {
-        $data['title']    =    'Edit Teacher | DHIBS';
+        $data['title']    =    'Edit Guru | DHIBS';
         $data['page']     =    '/admin/edit-teacher';
         $data['dt']       =    $this->AdminModel->read('list_teacher', 'id_guru', $id);
 
@@ -141,10 +139,7 @@ class ListTeacher extends CI_Controller
             ];
             $this->AdminModel->create('list_teacher', 'id_guru', $id, $data);
 
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-                    Berhasil Menambahkan Data Baru !
-                </div>');
-
+            $this->session->set_flashdata('guru', 'Berhasil Mengubah Data !');
             return redirect('admin/list-teacher');
         }
     }
@@ -153,9 +148,7 @@ class ListTeacher extends CI_Controller
     {
         $this->db->where('id_guru', $id);
         $this->db->delete('list_teacher');
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-					Berhasil Mengapus Data !
-                </div>');
+        $this->session->set_flashdata('guru', 'Berhasil Menghapus Data !');
         return redirect('admin/list-teacher');
     }
 
@@ -163,7 +156,7 @@ class ListTeacher extends CI_Controller
     {
         $data['title']    =    'List Guru | DHIBS';
         $data['page']    =    '/admin/cetak-list-teacher';
-        $data['list_teacher']    =    $this->db->get('list_teacher');
+        $data['list_guru']    =    $this->db->get('list_teacher');
         $this->load->view('/admin/cetak-list-teacher', $data);
     }
 }
